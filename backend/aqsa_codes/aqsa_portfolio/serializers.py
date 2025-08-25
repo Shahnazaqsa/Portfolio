@@ -1,0 +1,15 @@
+from rest_framework import serializers
+from .models import Project, Contact
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = ["title", "linkdIn", "github", "project_link", "image"]
+        # widget =
+
+
+class ContactSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contact
+        fields = "__all__"
