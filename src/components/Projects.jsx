@@ -43,7 +43,7 @@ function Projects() {
                 <h3 className="text-2xl font-semibold text-cyan-300">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 mt-2">{project.description}</p>
+                <p className="text-gray-300 mt-2">{project.date_posted}</p>
 
                 <div className="flex justify-center gap-6 mt-4">
                   <a
