@@ -56,9 +56,10 @@ MIDDLEWARE = [
 # CORS_ALLOW_ALL_ORIGIN = True
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",   
-    "http://127.0.0.1:5173", 
+    "https://jazzy-cannoli-1e0530.netlify.app",
+    "http://localhost:5173"
 ]
+
 
 ROOT_URLCONF = "aqsa_codes.urls"
 
