@@ -47,7 +47,7 @@ function Projects() {
 
                 <div className="flex justify-center gap-6 mt-4">
                   <a
-                    href={project.code_link}
+                    href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 bg-cyan-700 hover:bg-cyan-600 rounded-lg"
@@ -55,7 +55,7 @@ function Projects() {
                     <Github className="w-5 h-5" /> Code
                   </a>
                   <a
-                    href={project.live_link}
+                    href={project.project_link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 bg-cyan-700 hover:bg-cyan-600 rounded-lg"
