@@ -1,7 +1,11 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from openai import OpenAI
+from dotenv import load_dotenv
 import os, json
+
+# Load environment variables
+load_dotenv()
 
 @csrf_exempt
 def chat(request):
@@ -13,12 +17,17 @@ def chat(request):
             return JsonResponse({"error": "Empty message"})
 
         try:
+            # Initialize OpenAI client
             client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+            # Load system prompt 
+            system_prompt = os.getenv("SYSTEM_PROMPT")
+
+            # Generate bot response
             response = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[
-                    {"role": "system", "content": "You are Aqsa's portfolio assistant. Help users learn about her skills and projects."},
+                    {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_message},
                 ],
                 max_tokens=200,

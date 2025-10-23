@@ -7,7 +7,7 @@ function Hero() {
 
   useEffect(() => {
     const options = {
-      strings: ["Web Developer", "AI Engineer"],
+      strings: ["Web Developer", "ML Engineer"],
       typeSpeed: 80,
       backSpeed: 50,
       startDelay: 500,
