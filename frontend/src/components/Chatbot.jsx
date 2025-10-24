@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "../api/axios";
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -97,4 +96,5 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+
 
