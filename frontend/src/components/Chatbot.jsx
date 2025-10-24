@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import api from "../api"; // path adjust karo agar api.js src/ me hai
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -15,17 +16,15 @@ const Chatbot = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://shahnaz999aqsa.pythonanywhere.com/chat/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
+      const response = await api.post("https://shahnaz999aqsa.pythonanywhere.com/chat/", {
+        message: input,
       });
-
-      const data = await response.json();
+      const data = response.data;
       const botReply = data.reply || data.error || "Error getting reply";
 
       setMessages([...newMessages, { sender: "bot", text: botReply }]);
     } catch (err) {
+      console.error("API Error:", err);
       setMessages([
         ...newMessages,
         { sender: "bot", text: "Server error. Try again later." },
@@ -96,5 +95,3 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
-
-
