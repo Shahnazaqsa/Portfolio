@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import api from "../api"; // path adjust karo agar api.js src/ me hai
+import axios from "axios";
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -16,9 +16,13 @@ const Chatbot = () => {
     setLoading(true);
 
     try {
-      const response = await api.post("https://shahnaz999aqsa.pythonanywhere.com/chat/", {
-        message: input,
-      });
+      // Direct absolute URL use kar rahe hain, baseURL ki dependency nahi
+      const response = await axios.post(
+        "https://shahnaz999aqsa.pythonanywhere.com/chat/",
+        { message: input },
+        { headers: { "Content-Type": "application/json" } }
+      );
+
       const data = response.data;
       const botReply = data.reply || data.error || "Error getting reply";
 
