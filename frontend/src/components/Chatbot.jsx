@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "../api/axios";
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -15,7 +16,7 @@ const Chatbot = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/chat/", {
+      const response = await fetch("https://shahnaz999aqsa.pythonanywhere.com/chat/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input }),
@@ -96,3 +97,4 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+
