@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import api from "../api"; // path adjust karo agar api.js src/ me hai
+import axious from "axios";
+import { FaComments } from "react-icons/fa";
+
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -42,17 +44,17 @@ const Chatbot = () => {
     <>
       {/* Floating Chat Button */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-full shadow-lg z-50 transition-transform transform hover:scale-110"
-      >
-        💬
-      </button>
+  onClick={() => setIsOpen(!isOpen)}
+  className="fixed bottom-6 right-6 bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-full shadow-lg z-50 transition-transform transform hover:scale-110"
+>
+  <FaComments size={24} />  
+</button>
 
       {/* Chat Window */}
       {isOpen && (
         <div className="fixed bottom-20 right-6 w-80 bg-white shadow-2xl rounded-2xl overflow-hidden z-50">
           <div className="bg-indigo-600 text-white p-3 font-semibold">
-            Aqsa’s Chatbot 🤖
+            Aqsa's Chatbot 🤖
           </div>
           <div className="h-80 overflow-y-auto p-3 space-y-2">
             {messages.map((msg, i) => (
